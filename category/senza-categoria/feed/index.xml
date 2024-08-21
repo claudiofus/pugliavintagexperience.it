@@ -9,8 +9,8 @@
 
 <channel>
 	<title>Senza categoria &#8211; Puglia Vintage Experience</title>
-	<atom:link href="/category/senza-categoria/feed/" rel="self" type="application/rss+xml" />
-	<link></link>
+	<atom:link href="https://pugliavintagexperience.it/category/senza-categoria/feed/" rel="self" type="application/rss+xml" />
+	<link>https://pugliavintagexperience.it</link>
 	<description>Weddings, Tour &#38; More</description>
 	<lastBuildDate>Tue, 20 Aug 2024 09:28:35 +0000</lastBuildDate>
 	<language>it-IT</language>
@@ -21,20 +21,20 @@
 	<generator>https://wordpress.org/?v=6.6.1</generator>
 	<item>
 		<title>Ciao mondo!</title>
-		<link>/2024/08/20/ciao-mondo/</link>
-					<comments>/2024/08/20/ciao-mondo/#comments</comments>
+		<link>https://pugliavintagexperience.it/2024/08/20/ciao-mondo/</link>
+					<comments>https://pugliavintagexperience.it/2024/08/20/ciao-mondo/#comments</comments>
 		
 		<dc:creator><![CDATA[claudiofus]]></dc:creator>
 		<pubDate>Tue, 20 Aug 2024 09:28:35 +0000</pubDate>
 				<category><![CDATA[Senza categoria]]></category>
-		<guid isPermaLink="false">/?p=1</guid>
+		<guid isPermaLink="false">https://pugliavintagexperience.it/?p=1</guid>
 
 					<description><![CDATA[Ti diamo il benvenuto in WordPress. Questo è il tuo primo articolo. Modificalo o eliminalo e quindi inizia a scrivere!]]></description>
 										<content:encoded><![CDATA[
 <p>Ti diamo il benvenuto in WordPress. Questo è il tuo primo articolo. Modificalo o eliminalo e quindi inizia a scrivere!</p>
 ]]></content:encoded>
 					
-					<wfw:commentRss>/2024/08/20/ciao-mondo/feed/</wfw:commentRss>
+					<wfw:commentRss>https://pugliavintagexperience.it/2024/08/20/ciao-mondo/feed/</wfw:commentRss>
 			<slash:comments>1</slash:comments>
 		
 		

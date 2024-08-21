@@ -9,8 +9,8 @@
 
 <channel>
 	<title>Islands &#8211; Puglia Vintage Experience</title>
-	<atom:link href="/category/islands/feed/" rel="self" type="application/rss+xml" />
-	<link></link>
+	<atom:link href="https://pugliavintagexperience.it/category/islands/feed/" rel="self" type="application/rss+xml" />
+	<link>https://pugliavintagexperience.it</link>
 	<description>Weddings, Tour &#38; More</description>
 	<lastBuildDate>Fri, 17 Apr 2020 14:39:09 +0000</lastBuildDate>
 	<language>it-IT</language>
@@ -21,8 +21,8 @@
 	<generator>https://wordpress.org/?v=6.6.1</generator>
 	<item>
 		<title>Quis Lipsum Suspendisse Ultrices Gravida Dictum Fusce</title>
-		<link>/2020/04/17/quis-lipsum-suspendisse-ultrices-gravida-dictum-fusce/</link>
-					<comments>/2020/04/17/quis-lipsum-suspendisse-ultrices-gravida-dictum-fusce/#respond</comments>
+		<link>https://pugliavintagexperience.it/2020/04/17/quis-lipsum-suspendisse-ultrices-gravida-dictum-fusce/</link>
+					<comments>https://pugliavintagexperience.it/2020/04/17/quis-lipsum-suspendisse-ultrices-gravida-dictum-fusce/#respond</comments>
 		
 		<dc:creator><![CDATA[claudiofus]]></dc:creator>
 		<pubDate>Fri, 17 Apr 2020 14:39:09 +0000</pubDate>
@@ -36,7 +36,7 @@
 
 
 
-<div class="wp-block-image"><figure class="alignleft size-large is-resized"><img fetchpriority="high" decoding="async" src="/wp-content/uploads/2020/04/james-donaldson-toPRrcyAIUY-unsplash.jpg" alt="" class="wp-image-51" width="357" height="524" srcset="/wp-content/uploads/2020/04/james-donaldson-toPRrcyAIUY-unsplash.jpg 600w, /wp-content/uploads/2020/04/james-donaldson-toPRrcyAIUY-unsplash-205x300.jpg 205w" sizes="(max-width: 357px) 100vw, 357px" /></figure></div>
+<div class="wp-block-image"><figure class="alignleft size-large is-resized"><img fetchpriority="high" decoding="async" src="https://pugliavintagexperience.it/wp-content/uploads/2020/04/james-donaldson-toPRrcyAIUY-unsplash.jpg" alt="" class="wp-image-51" width="357" height="524" srcset="https://pugliavintagexperience.it/wp-content/uploads/2020/04/james-donaldson-toPRrcyAIUY-unsplash.jpg 600w, https://pugliavintagexperience.it/wp-content/uploads/2020/04/james-donaldson-toPRrcyAIUY-unsplash-205x300.jpg 205w" sizes="(max-width: 357px) 100vw, 357px" /></figure></div>
 
 
 
@@ -55,15 +55,15 @@
 <p>Pharetra diam sit amet nisl suscipit adipiscing bibendum est. Leo in vitae turpis massa sed elementum tempus egestas. Vulputate dignissim suspendisse in est ante in nibh mauris cursus. Nulla pellentesque dignissim enim sit amet. Eleifend mi in nulla posuere.</p>
 ]]></content:encoded>
 					
-					<wfw:commentRss>/2020/04/17/quis-lipsum-suspendisse-ultrices-gravida-dictum-fusce/feed/</wfw:commentRss>
+					<wfw:commentRss>https://pugliavintagexperience.it/2020/04/17/quis-lipsum-suspendisse-ultrices-gravida-dictum-fusce/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
 		
 		
 			</item>
 		<item>
 		<title>Pretium Lectus Quam Lidleo Unvitae Turpis Commodo Odio Aenean</title>
-		<link>/2020/04/17/pretium-lectus-quam-lidleo-unvitae-turpis/</link>
-					<comments>/2020/04/17/pretium-lectus-quam-lidleo-unvitae-turpis/#respond</comments>
+		<link>https://pugliavintagexperience.it/2020/04/17/pretium-lectus-quam-lidleo-unvitae-turpis/</link>
+					<comments>https://pugliavintagexperience.it/2020/04/17/pretium-lectus-quam-lidleo-unvitae-turpis/#respond</comments>
 		
 		<dc:creator><![CDATA[claudiofus]]></dc:creator>
 		<pubDate>Fri, 17 Apr 2020 14:15:21 +0000</pubDate>
@@ -83,7 +83,7 @@
 <p> Semper risus in hendrerit gravida rutrum quisque non. Quis commodo odio aenean sed adipiscing diam donec adipiscing. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor. Vitae suscipit tellus mauris a. Quis enim lobortis scelerisque fermentum dui faucibus. Duis at tellus at urna. Pellentesque eu tincidunt tortor aliquam nulla facilisi. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat. Orci ac auctor augue mauris augue neque gravida.</p>
 ]]></content:encoded>
 					
-					<wfw:commentRss>/2020/04/17/pretium-lectus-quam-lidleo-unvitae-turpis/feed/</wfw:commentRss>
+					<wfw:commentRss>https://pugliavintagexperience.it/2020/04/17/pretium-lectus-quam-lidleo-unvitae-turpis/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
 		
 		

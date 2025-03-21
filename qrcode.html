@@ -11,6 +11,9 @@
         gtag('config', 'AW-936577570');
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Belleza&display=swap" rel="stylesheet">
     <meta name="description" content="Noleggia il nostro pulmino Volkswagen T2 per matrimoni, eventi speciali e tour turistici ad Alberobello e in tutta la Puglia. Scopri un'esperienza unica!">
     <meta charset="UTF-8">
     <link rel="profile" href="https://gmpg.org/xfn/11">
@@ -57,42 +60,57 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+	  background: linear-gradient(45deg, #ffeb3b, #ffcc00, #ffeb3b, #ffcc00);
+	  background-size: 400% 400%;
+	  animation: gradientAnimation 10s ease infinite;
     }
+	@keyframes gradientAnimation {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
     .container {
+	  background-color: #f09400;
       width: 90%;
       max-width: 600px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	  border-radius: 50px;	  
     }
-    /* Header: testo nero su sfondo bianco con bordi stondati in basso a sinistra e destra */
     .header {
       background: #ffffff;
       padding: 20px;
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
+	  border-radius: 25px;
     }
     .header h1 {
       font-family: 'Lobster', cursive;
-      font-size: 2.5em;
+      font-size: 3.5em;
       color: #000000;
       margin: 0;
     }
-    /* Content: tutto il resto su sfondo #f09400 */
     .content {
       background: #f09400;
-      padding: 30px 20px;
+      padding: 0 20px 20px 20px;
+	  border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
     }
     .content h2 {
       font-family: 'Lobster', cursive;
-      font-size: 2em;
+      font-size: 3em;
       color: #ffffff;
       margin-bottom: 10px;
     }
     .content p {
-      color: #ffffff;
+	  font-family: 'Belleza';
+      color: black;
       font-size: 1em;
       margin-bottom: 20px;
+	  font-weight: bold; 
     }
-    /* Stile dei pulsanti */
     .button {
       display: block;
       width: 80%;
@@ -107,22 +125,22 @@
       font-weight: bold;
     }
     .instagram {
-      background-color: #e4405f;
+      background-color: #E1306C;
     }
     .instagram:hover {
-      background-color: #c13554;
+      background-color: #C13584;
     }
     .website {
-      background-color: #000000;
+      background-color: #3fa673;
     }
     .website:hover {
-      background-color: #333333;
+      background-color: #225e4f;
     }
     .phone {
-      background-color: #2a9d8f;
+      background-color: #1499e6;
     }
     .phone:hover {
-      background-color: #21867a;
+      background-color: #1770c6;
     }
   </style>
 </head>
@@ -133,7 +151,7 @@
     </div>
     <div class="content">
       <h2>Experience</h2>
-      <p>Matrimoni, Eventi &amp; Tour</p>
+      <p>MATRIMONI, EVENTI &amp; TOUR</p>
         <a href="https://www.instagram.com/pugliavintagexperience" class="button instagram" target="_blank">📸 Segui su Instagram</a>
         <a href="https://www.pugliavintagexperience.it" class="button website" target="_blank">🌍 Visita il sito</a>
         <a href="tel:+393663031469" class="button phone">📞 3663031469</a>

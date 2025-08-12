@@ -9,11 +9,11 @@
 
 <channel>
 	<title>Puglia Vintage Experience</title>
-	<atom:link href="https://pugliavintagexperience.it/feed/" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pugliavintagexperience.it/fr/feed/" rel="self" type="application/rss+xml" />
 	<link>https://pugliavintagexperience.it</link>
 	<description>Weddings, Tour &#38; More</description>
 	<lastBuildDate>Tue, 12 Aug 2025 13:13:08 +0000</lastBuildDate>
-	<language>it-IT</language>
+	<language>fr-FR</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>

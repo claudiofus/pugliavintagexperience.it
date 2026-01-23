@@ -634,13 +634,17 @@
   const acceptBtn = document.getElementById('accept-cookies');
   const rejectBtn = document.getElementById('reject-cookies');
 
-  const consentGiven = localStorage.getItem('cookie_consent');
+  let consentGiven = localStorage.getItem('cookie_consent');
+  let scrollAccepted = false;
 
   if (!consentGiven) {
     banner.style.display = 'block';
   }
 
-  acceptBtn.addEventListener('click', function() {
+  function acceptCookies() {
+    if (scrollAccepted) return;
+    scrollAccepted = true;
+
     gtag('consent', 'update', {
       ad_storage: 'granted',
       ad_user_data: 'granted',
@@ -650,9 +654,10 @@
 
     localStorage.setItem('cookie_consent', 'accepted');
     banner.style.display = 'none';
-  });
+    window.removeEventListener('scroll', onScrollAccept);
+  }
 
-  rejectBtn.addEventListener('click', function() {
+  function rejectCookies() {
     gtag('consent', 'update', {
       ad_storage: 'denied',
       ad_user_data: 'denied',
@@ -662,7 +667,19 @@
 
     localStorage.setItem('cookie_consent', 'rejected');
     banner.style.display = 'none';
-  });
+    window.removeEventListener('scroll', onScrollAccept);
+  }
+
+  function onScrollAccept() {
+    if (window.scrollY > 10 && !consentGiven) {
+      acceptCookies();
+    }
+  }
+
+  acceptBtn.addEventListener('click', acceptCookies);
+  rejectBtn.addEventListener('click', rejectCookies);
+
+  window.addEventListener('scroll', onScrollAccept);
 })();
 </script>
 </html>

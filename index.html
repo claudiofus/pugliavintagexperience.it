@@ -52,19 +52,24 @@
       <link rel="icon" href="https://pugliavintagexperience.it/wp-content/uploads/2024/09/cropped-vw_sign_gold-192x192.png" sizes="192x192">
       <link rel="apple-touch-icon" href="https://pugliavintagexperience.it/wp-content/uploads/2024/09/cropped-vw_sign_gold-180x180.png">
       <meta name="msapplication-TileImage" content="https://pugliavintagexperience.it/wp-content/uploads/2024/09/cropped-vw_sign_gold-270x270.png">
-	  <!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-936577570"></script>
+	  <!-- Google tag (gtag.js)
+      	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-936577570"></script>
+	  -->
       <script>
          window.dataLayer = window.dataLayer || [];
          function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'AW-936577570');
+
+		 gtag('consent', 'default', {
+		    ad_storage: 'denied',
+		    ad_user_data: 'denied',
+		    ad_personalization: 'denied',
+		    analytics_storage: 'denied',
+		    wait_for_update: 500
+		 }); 
       </script>
 	  <!-- Global site tag (gtag.js) - Google Analytics v4 -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-83Q10C36BP"></script>
-      <script>window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
+      <script>
          gtag('js', new Date());
          gtag('config', 'G-83Q10C36BP');
       </script>
@@ -557,5 +562,106 @@
       <style id="core-block-supports-inline-css">.wp-block-gallery.wp-block-gallery-1{--wp--style--unstable-gallery-gap:var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );gap:var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );}</style>
       <script id="ct-scripts-js-extra">var ct_localizations = {"ajax_url":"https:\/\/pugliavintagexperience.it\/wp-admin\/admin-ajax.php","public_url":"https:\/\/pugliavintagexperience.it\/wp-content\/themes\/blocksy\/static\/bundle\/","rest_url":"https:\/\/pugliavintagexperience.it\/wp-json\/","search_url":"https:\/\/pugliavintagexperience.it\/search\/QUERY_STRING\/","show_more_text":"Mostra di più","more_text":"Di più","search_live_results":"Risultati della ricerca","search_live_no_results":"Nessun risultato","search_live_no_result":"Nessun risultato","search_live_one_result":"Hai ottenuto %s risultato. Premi la scheda per selezionarlo.","search_live_many_results":"Hai ottenuto %s risultati. Premi la scheda per selezionarne uno.","expand_submenu":"Apri il menu a discesa","collapse_submenu":"Chiudi il menu a discesa","dynamic_js_chunks":[],"dynamic_styles":{"lazy_load":"https:\/\/pugliavintagexperience.it\/wp-content\/themes\/blocksy\/static\/bundle\/non-critical-styles.min.css?ver=2.0.62","search_lazy":"https:\/\/pugliavintagexperience.it\/wp-content\/themes\/blocksy\/static\/bundle\/non-critical-search-styles.min.css?ver=2.0.62","back_to_top":"https:\/\/pugliavintagexperience.it\/wp-content\/themes\/blocksy\/static\/bundle\/back-to-top.min.css?ver=2.0.62"},"dynamic_styles_selectors":[{"selector":".ct-header-cart, #woo-cart-panel","url":"https:\/\/pugliavintagexperience.it\/wp-content\/themes\/blocksy\/static\/bundle\/cart-header-element-lazy.min.css?ver=2.0.62"},{"selector":".flexy","url":"https:\/\/pugliavintagexperience.it\/wp-content\/themes\/blocksy\/static\/bundle\/flexy.min.css?ver=2.0.62"}],"lang":"it"};</script>
       <script src="https://pugliavintagexperience.it/wp-content/themes/blocksy/static/bundle/main.js?ver=2.0.62" id="ct-scripts-js"></script>
+	  <style>
+#cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  max-width: 420px;
+  background: #111;
+  color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.3);
+  z-index: 9999;
+  font-family: Arial, sans-serif;
+  display: none;
+}
+
+#cookie-banner h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+#cookie-banner p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+#cookie-banner .buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+#cookie-banner button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#accept-cookies {
+  background: #c89b3c;
+  color: #000;
+}
+
+#reject-cookies {
+  background: #444;
+  color: #fff;
+}
+</style>
+
+<div id="cookie-banner">
+  <h3>🍪 Cookie e privacy</h3>
+  <p>
+    Utilizziamo cookie per analisi statistiche e marketing.
+    Puoi accettare o rifiutare. Puoi cambiare idea in qualsiasi momento.
+  </p>
+  <div class="buttons">
+    <button id="accept-cookies">Accetta</button>
+    <button id="reject-cookies">Rifiuta</button>
+  </div>
+</div> 
    </body>
+	<script>
+(function() {
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('accept-cookies');
+  const rejectBtn = document.getElementById('reject-cookies');
+
+  const consentGiven = localStorage.getItem('cookie_consent');
+
+  if (!consentGiven) {
+    banner.style.display = 'block';
+  }
+
+  acceptBtn.addEventListener('click', function() {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted'
+    });
+
+    localStorage.setItem('cookie_consent', 'accepted');
+    banner.style.display = 'none';
+  });
+
+  rejectBtn.addEventListener('click', function() {
+    gtag('consent', 'update', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied'
+    });
+
+    localStorage.setItem('cookie_consent', 'rejected');
+    banner.style.display = 'none';
+  });
+})();
+</script>
 </html>

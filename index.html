@@ -562,7 +562,57 @@
       <style id="core-block-supports-inline-css">.wp-block-gallery.wp-block-gallery-1{--wp--style--unstable-gallery-gap:var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );gap:var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );}</style>
       <script id="ct-scripts-js-extra">var ct_localizations = {"ajax_url":"https:\/\/pugliavintagexperience.it\/wp-admin\/admin-ajax.php","public_url":"https:\/\/pugliavintagexperience.it\/wp-content\/themes\/blocksy\/static\/bundle\/","rest_url":"https:\/\/pugliavintagexperience.it\/wp-json\/","search_url":"https:\/\/pugliavintagexperience.it\/search\/QUERY_STRING\/","show_more_text":"Mostra di più","more_text":"Di più","search_live_results":"Risultati della ricerca","search_live_no_results":"Nessun risultato","search_live_no_result":"Nessun risultato","search_live_one_result":"Hai ottenuto %s risultato. Premi la scheda per selezionarlo.","search_live_many_results":"Hai ottenuto %s risultati. Premi la scheda per selezionarne uno.","expand_submenu":"Apri il menu a discesa","collapse_submenu":"Chiudi il menu a discesa","dynamic_js_chunks":[],"dynamic_styles":{"lazy_load":"https:\/\/pugliavintagexperience.it\/wp-content\/themes\/blocksy\/static\/bundle\/non-critical-styles.min.css?ver=2.0.62","search_lazy":"https:\/\/pugliavintagexperience.it\/wp-content\/themes\/blocksy\/static\/bundle\/non-critical-search-styles.min.css?ver=2.0.62","back_to_top":"https:\/\/pugliavintagexperience.it\/wp-content\/themes\/blocksy\/static\/bundle\/back-to-top.min.css?ver=2.0.62"},"dynamic_styles_selectors":[{"selector":".ct-header-cart, #woo-cart-panel","url":"https:\/\/pugliavintagexperience.it\/wp-content\/themes\/blocksy\/static\/bundle\/cart-header-element-lazy.min.css?ver=2.0.62"},{"selector":".flexy","url":"https:\/\/pugliavintagexperience.it\/wp-content\/themes\/blocksy\/static\/bundle\/flexy.min.css?ver=2.0.62"}],"lang":"it"};</script>
       <script src="https://pugliavintagexperience.it/wp-content/themes/blocksy/static/bundle/main.js?ver=2.0.62" id="ct-scripts-js"></script>
-	  <style>
+<style>
+#floating-whatsapp {
+  position: fixed;
+  right: calc(env(safe-area-inset-right, 0px) + 20px);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 20px);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+  z-index: 9998;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, bottom 0.2s ease;
+}
+
+#floating-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
+}
+
+#floating-whatsapp svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+#floating-whatsapp.cookie-banner-visible {
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 180px);
+}
+
+@media (max-width: 689px) {
+  #floating-whatsapp {
+    right: calc(env(safe-area-inset-right, 0px) + 16px);
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+    padding: 13px 16px;
+    font-size: 14px;
+  }
+
+  #floating-whatsapp.cookie-banner-visible {
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 220px);
+  }
+}
+
 #cookie-banner {
   position: fixed;
   bottom: 20px;
@@ -616,6 +666,19 @@
 }
 </style>
 
+<a
+  id="floating-whatsapp"
+  href="https://wa.me/393663031469?text=Ciao%2C%20ho%20visto%20il%20pulmino%20Volkswagen%20sul%20tuo%20sito%20e%20vorrei%20maggiori%20informazioni."
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Contattaci su WhatsApp"
+>
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 2a10 10 0 0 0-8.78 14.79L2 22l5.36-1.18A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.07-1.11l-.29-.17-3.18.7.68-3.09-.19-.31A8 8 0 1 1 12 20Zm4.38-5.59c-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.55.12-.16.24-.63.77-.77.93-.14.16-.28.18-.52.06-.24-.12-1-.37-1.91-1.18-.7-.63-1.18-1.41-1.32-1.65-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.75-1.82-.2-.48-.41-.42-.55-.43h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.68 2.57 4.07 3.6.57.25 1.02.4 1.37.52.58.18 1.1.16 1.52.1.46-.07 1.4-.57 1.6-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28Z"></path>
+  </svg>
+  <span>WhatsApp</span>
+</a>
+
 <div id="cookie-banner">
   <h3>🍪 Cookie e privacy</h3>
   <p>
@@ -628,8 +691,9 @@
   </div>
 </div> 
    </body>
-	<script>
+<script>
 (function() {
+  const floatingWhatsapp = document.getElementById('floating-whatsapp');
   const banner = document.getElementById('cookie-banner');
   const acceptBtn = document.getElementById('accept-cookies');
   const rejectBtn = document.getElementById('reject-cookies');
@@ -637,9 +701,16 @@
   let consentGiven = localStorage.getItem('cookie_consent');
   let scrollAccepted = false;
 
+  function syncFloatingWhatsapp() {
+    if (!floatingWhatsapp || !banner) return;
+    const bannerVisible = window.getComputedStyle(banner).display !== 'none';
+    floatingWhatsapp.classList.toggle('cookie-banner-visible', bannerVisible);
+  }
+
   if (!consentGiven) {
     banner.style.display = 'block';
   }
+  syncFloatingWhatsapp();
 
   function acceptCookies() {
     if (scrollAccepted) return;
@@ -654,6 +725,7 @@
 
     localStorage.setItem('cookie_consent', 'accepted');
     banner.style.display = 'none';
+    syncFloatingWhatsapp();
     window.removeEventListener('scroll', onScrollAccept);
   }
 
@@ -667,6 +739,7 @@
 
     localStorage.setItem('cookie_consent', 'rejected');
     banner.style.display = 'none';
+    syncFloatingWhatsapp();
     window.removeEventListener('scroll', onScrollAccept);
   }
 
@@ -680,6 +753,7 @@
   rejectBtn.addEventListener('click', rejectCookies);
 
   window.addEventListener('scroll', onScrollAccept);
+  window.addEventListener('resize', syncFloatingWhatsapp);
 })();
 </script>
 </html>

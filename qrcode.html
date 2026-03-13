@@ -93,47 +93,56 @@
     }
     .content p {
 	  font-family: 'Belleza';
-      color: black;
+      color: white !important;
       font-size: 1em;
       margin-bottom: 20px;
 	  font-weight: bold; 
     }
     .button {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       width: 80%;
       max-width: 300px;
       padding: 15px;
       margin: 10px auto;
       text-decoration: none;
-      color: white;
+      color: white !important;
       font-size: 18px;
       border-radius: 8px;
       transition: background-color 0.3s ease;
       font-weight: bold;
     }
+    .button svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
     .instagram {
-      background-color: #E1306C;
+      background-color: #f3b6c8;
     }
     .instagram:hover {
-      background-color: #C13584;
+      background-color: #e9afc4;
     }
     .website {
-      background-color: #3fa673;
+      background-color: #aee3da;
     }
     .website:hover {
-      background-color: #225e4f;
+      background-color: #9fd6cf;
     }
     .phone {
-      background-color: #1499e6;
+      background-color: #b7cff2;
     }
     .phone:hover {
-      background-color: #1770c6;
+      background-color: #afc3e6;
     }
     .whatsapp {
-      background-color: #25d366;
+      background-color: #b8e6c1;
     }
     .whatsapp:hover {
-      background-color: #128C7E;
+      background-color: #a8d9b0;
     }
   </style>
 </head>
@@ -147,7 +156,12 @@
       <p>MATRIMONI, EVENTI &amp; TOUR</p>
         <a href="https://www.instagram.com/pugliavintagexperience" class="button instagram" target="_blank">📸 Segui su Instagram</a>
         <a href="https://www.pugliavintagexperience.it" class="button website" target="_blank">🌍 Visita il sito</a>
-        <a href="https://wa.me/393663031469?text=Ciao%2C%20ho%20visto%20il%20pulmino%20Volkswagen%20sul%20tuo%20sito%20e%20vorrei%20maggiori%20informazioni." class="button whatsapp" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a href="https://wa.me/393663031469?text=Ciao%2C%20ho%20visto%20il%20pulmino%20Volkswagen%20sul%20tuo%20sito%20e%20vorrei%20maggiori%20informazioni." class="button whatsapp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2a10 10 0 0 0-8.78 14.79L2 22l5.36-1.18A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.07-1.11l-.29-.17-3.18.7.68-3.09-.19-.31A8 8 0 1 1 12 20Zm4.38-5.59c-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.55.12-.16.24-.63.77-.77.93-.14.16-.28.18-.52.06-.24-.12-1-.37-1.91-1.18-.7-.63-1.18-1.41-1.32-1.65-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.75-1.82-.2-.48-.41-.42-.55-.43h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.68 2.57 4.07 3.6.57.25 1.02.4 1.37.52.58.18 1.1.16 1.52.1.46-.07 1.4-.57 1.6-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28Z"></path>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
         <a href="tel:+393663031469" class="button phone">📞 3663031469</a>
     </div>
   </div>

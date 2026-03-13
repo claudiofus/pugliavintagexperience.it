@@ -1,139 +1,204 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-936577570"></script>
+    <title>Puglia Vintage Experience | QR</title>
+    <meta name="description" content="Contatta Puglia Vintage Experience per matrimoni, eventi e tour in Puglia.">
+    <meta name="theme-color" content="#a2c8f7">
+    <meta property="og:title" content="Puglia Vintage Experience">
+    <meta property="og:description" content="Matrimoni, eventi e tour in Puglia.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:url" content="https://pugliavintagexperience.it/qrcode.html">
+    <meta property="og:image" content="https://www.pugliavintagexperience.it/wp-content/uploads/2024/09/20240824_221917-1-e1734434121843.jpg">
+    <link rel="icon" href="/wp-content/uploads/2024/09/cropped-vw_sign_gold-32x32.png" sizes="32x32">
+    <link rel="icon" href="/wp-content/uploads/2024/09/cropped-vw_sign_gold-192x192.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="/wp-content/uploads/2024/09/cropped-vw_sign_gold-180x180.png">
+    <style>
+        :root {
+            --bg: #a2c8f7;
+            --card: #f09400;
+            --surface: #ffffff;
+            --text: #111111;
+            --instagram: #f06c9b;
+            --whatsapp: #25d366;
+            --website: #4db68d;
+            --phone: #7a9db3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            background: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            width: min(100%, 600px);
+            background: var(--card);
+            border-radius: 40px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+            overflow: hidden;
+        }
+
+        .header {
+            background: var(--surface);
+            padding: 22px 20px;
+        }
+
+        .header h1,
+        .content h2 {
+            margin: 0;
+            font-family: "Brush Script MT", "Segoe Script", "Snell Roundhand", cursive;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .header h1 {
+            font-size: clamp(2.8rem, 7vw, 3.6rem);
+            color: #000000;
+        }
+
+        .content {
+            padding: 12px 20px 24px;
+        }
+
+        .content h2 {
+            font-size: clamp(2.4rem, 6vw, 3.2rem);
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .content p {
+            margin: 0 0 20px;
+            font-size: 0.98rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+
+        .button {
+            display: block;
+            width: min(100%, 320px);
+            margin: 10px auto 0;
+            padding: 15px 18px;
+            border-radius: 12px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-1px);
+            opacity: 0.96;
+        }
+
+        .instagram {
+            background: var(--instagram);
+        }
+
+        .whatsapp {
+            background: var(--whatsapp);
+        }
+
+        .website {
+            background: var(--website);
+        }
+
+        .phone {
+            background: var(--phone);
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 16px;
+            }
+
+            .container {
+                border-radius: 28px;
+            }
+
+            .header {
+                padding: 18px 16px;
+            }
+
+            .content {
+                padding: 10px 16px 20px;
+            }
+        }
+    </style>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());        
-        gtag('config', 'AW-936577570');
+
+        (function() {
+            const ids = ['AW-936577570', 'G-83Q10C36BP'];
+            let loaded = false;
+            let configured = false;
+
+            function loadAnalytics() {
+                if (loaded) return;
+                loaded = true;
+
+                const script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=' + ids[0];
+                document.head.appendChild(script);
+            }
+
+            function configureAnalytics() {
+                if (configured) return;
+                configured = true;
+
+                gtag('js', new Date());
+                ids.forEach((id) => gtag('config', id));
+            }
+
+            function startAnalytics() {
+                loadAnalytics();
+                configureAnalytics();
+            }
+
+            window.addEventListener('load', () => {
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(startAnalytics, { timeout: 2000 });
+                } else {
+                    setTimeout(startAnalytics, 1200);
+                }
+            }, { once: true });
+
+            ['pointerdown', 'touchstart', 'keydown'].forEach((eventName) => {
+                window.addEventListener(eventName, startAnalytics, { once: true, passive: true });
+            });
+        })();
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Belleza&display=swap" rel="stylesheet">
-    <meta name="description" content="Noleggia il nostro pulmino Volkswagen T2 per matrimoni, eventi speciali e tour turistici ad Alberobello e in tutta la Puglia. Scopri un'esperienza unica!">
-    <meta charset="UTF-8">
-    <link rel="profile" href="https://gmpg.org/xfn/11">
-    <title>Puglia Vintage Experience &#8211; Weddings, Tour &amp; More</title>
-    <meta name="robots" content="max-image-preview:large">
-    <meta property="og:title" content="Puglia Vintage Experience &#8211; Weddings, Tour &amp; More">
-    <meta property="og:description" content="Noleggia il nostro pulmino Volkswagen T2 per matrimoni, eventi speciali e tour turistici ad Alberobello e in tutta la Puglia. Scopri un'esperienza unica!">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Puglia Vintage Experience &#8211; Weddings, Tour &amp; More">
-    <meta property="og:locale" content="it_IT">
-    <meta property="og:url" content="https://pugliavintagexperience.it">
-    <meta property="og:image" content="https://www.pugliavintagexperience.it/wp-content/uploads/2024/09/20240824_221917-1-e1734434121843.jpg">
-    <link rel="sitemap" type="application/xml" href="https://pugliavintagexperience.it/sitemap.xml">
-    <link rel="stylesheet" href="https://pugliavintagexperience.it/ultimate.css" media="all">
-    <!-- Global site tag (gtag.js) - Google Analytics v4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-83Q10C36BP"></script>
-    <script>window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-83Q10C36BP');
-    </script>
-    <!-- End Google Analytics v4 -->
-    <link rel="https://api.w.org/" href="https://pugliavintagexperience.it/wp-json/">
-    <link rel="alternate" title="JSON" type="application/json" href="https://pugliavintagexperience.it/wp-json/wp/v2/pages/459">
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://pugliavintagexperience.it/xmlrpc.php?rsd">
-    <meta name="generator" content="WordPress 6.7.1">
-    <link rel="canonical" href="https://pugliavintagexperience.it/">
-    <link rel="shortlink" href="https://pugliavintagexperience.it/">
-    <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://pugliavintagexperience.it/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpugliavintagexperience.it%2F">
-    <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://pugliavintagexperience.it/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpugliavintagexperience.it%2F#038;format=xml">
-    <link rel="icon" href="https://pugliavintagexperience.it/wp-content/uploads/2024/09/cropped-vw_sign_gold-32x32.png" sizes="32x32">
-    <link rel="icon" href="https://pugliavintagexperience.it/wp-content/uploads/2024/09/cropped-vw_sign_gold-192x192.png" sizes="192x192">
-    <link rel="apple-touch-icon" href="https://pugliavintagexperience.it/wp-content/uploads/2024/09/cropped-vw_sign_gold-180x180.png">
-    <meta name="msapplication-TileImage" content="https://pugliavintagexperience.it/wp-content/uploads/2024/09/cropped-vw_sign_gold-270x270.png">
-    
-<style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      text-align: center;
-      background-color: #ffffff;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-	  background: #a2c8f7;
-    }
-    .container {
-	  background-color: #f09400;
-      width: 90%;
-      max-width: 600px;
-	  border-radius: 50px;	  
-    }
-    .header {
-      background: #ffffff;
-      padding: 20px;
-	  border-radius: 25px;
-    }
-    .header h1 {
-      font-family: 'Lobster', cursive;
-      font-size: 3.5em;
-      color: #000000;
-      margin: 0;
-    }
-    .content {
-      background: #f09400;
-      padding: 0 20px 20px 20px;
-	  border-bottom-left-radius: 25px;
-      border-bottom-right-radius: 25px;
-    }
-    .content h2 {
-      font-family: 'Lobster', cursive;
-      font-size: 3em;
-      color: #ffffff;
-      margin-bottom: 10px;
-    }
-    .content p {
-	  font-family: 'Belleza';
-      color: black;
-      font-size: 1em;
-      margin-bottom: 20px;
-	  font-weight: bold; 
-    }
-    .button {
-      display: block;
-      width: 80%;
-      max-width: 300px;
-      padding: 15px;
-      margin: 10px auto;
-      text-decoration: none;
-      color: white;
-      font-size: 18px;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-      font-weight: bold;
-    }
-    .instagram {
-      background-color: #f06c9b;
-    }
-    .website {
-      background-color: #4db68d;
-    }
-    .phone {
-      background-color: #7a9db3;
-    }
-  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>Puglia Vintage</h1>
-    </div>
-    <div class="content">
-      <h2>Experience</h2>
-      <p>MATRIMONI, EVENTI &amp; TOUR</p>
-        <a href="https://www.instagram.com/pugliavintagexperience" class="button instagram" target="_blank">📸 Instagram</a>
-        <a href="https://www.pugliavintagexperience.it" class="button website" target="_blank">🌍 Sito Web</a>
-        <a href="tel:+393663031469" class="button phone">📞 3663031469</a>
-    </div>
-  </div>
+    <main class="container">
+        <div class="header">
+            <h1>Puglia Vintage</h1>
+        </div>
+        <div class="content">
+            <h2>Experience</h2>
+            <p>MATRIMONI, EVENTI &amp; TOUR</p>
+            <a href="https://www.instagram.com/pugliavintagexperience" class="button instagram" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+            <a href="https://wa.me/393663031469?text=Ciao%2C%20ho%20visto%20il%20pulmino%20Volkswagen%20sul%20tuo%20sito%20e%20vorrei%20maggiori%20informazioni." class="button whatsapp" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+            <a href="https://www.pugliavintagexperience.it" class="button website" target="_blank" rel="noopener noreferrer">🌍 Sito Web</a>
+            <a href="tel:+393663031469" class="button phone">📞 3663031469</a>
+        </div>
+    </main>
 </body>
 </html>

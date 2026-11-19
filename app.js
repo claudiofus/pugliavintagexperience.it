@@ -5,7 +5,7 @@
   const $ = (selector) => document.querySelector(selector);
   const $$ = (selector) => [...document.querySelectorAll(selector)];
   const locales = { it: 'it-IT', en: 'en-GB', fr: 'fr-FR' };
-  const asset = path => window.PVE_ASSETS?.[path.replace('assets/', '')] || new URL(path, window.PVE_NAV?.rootURL || location.href).href;
+  const asset = path => window.PVE_ASSETS?.[path.split('?')[0].replace('assets/', '')] || new URL(path, window.PVE_NAV?.rootURL || location.href).href;
   const photos = $$('[data-gallery]').map(button => {
     const image = button.querySelector('img');
     return {
@@ -15,8 +15,8 @@
     };
   });
   const moments = [
-    { src: asset('assets/matrimonio-dettagli.webp'), position: '50% 54%', width: 1000, height: 667 },
-    { src: asset('assets/home-viale-960.webp'), position: '36% 69%', width: 960, height: 640 },
+    { src: asset('assets/matrimonio-dettagli.webp?v=2'), position: '50% 54%', width: 1000, height: 667 },
+    { src: asset('assets/home-viale-960.webp?v=2'), position: '36% 69%', width: 960, height: 640 },
     { src: asset('assets/matrimonio-tramonto.webp'), position: '65% 59%', width: 1050, height: 789 }
   ];
   let language = 'it';

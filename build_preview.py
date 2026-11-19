@@ -229,7 +229,7 @@ for lang in LANGS:
                 if n.attrs['data-lang']==lang:n.attrs['aria-current']='page'
             if n.tag=='img' and n.attrs.get('src','').lstrip('./').startswith('assets/'):
                 asset=n.attrs['src'].lstrip('./');n.attrs['src']=prefix+asset
-                n.attrs['width'],n.attrs['height']=image_dimensions(DIST/asset)
+                n.attrs['width'],n.attrs['height']=image_dimensions(DIST/urlsplit(asset).path)
             if 'srcset' in n.attrs:
                 n.attrs['srcset'] = map_srcset(n.attrs['srcset'], lambda url: prefix+url.lstrip('./'))
             if n.tag=='link' and n.attrs.get('href','').lstrip('./').startswith('assets/'):
@@ -257,7 +257,7 @@ for lang in LANGS:
             card.children.append(Node('noscript',{'id':'request-nojs'},[Node('p',{'class':'form-note'},[help_text]),Node('a',{'class':'button button-dark','href':'https://wa.me/393663031469','target':'_blank','rel':'noopener noreferrer'},[c['openWhatsapp']])]))
         # Metadata is complete in the initial HTML, independent of JavaScript.
         head.children=[n for n in head.children if not isinstance(n,Node) or not (n.tag in ['meta','title','noscript'] or n.tag=='link' and n.attrs.get('rel') in ['canonical','alternate','stylesheet'] or n.tag=='script')]
-        image={'home':'assets/home-viale.webp','wedding':'assets/matrimonio-arrivo.webp','tour':'assets/night.webp','events':'assets/events-wide.webp'}[page]
+        image={'home':'assets/home-viale.webp?v=2','wedding':'assets/matrimonio-arrivo.webp','tour':'assets/night.webp','events':'assets/events-wide.webp'}[page]
         def meta(key,value,property=False):head.children.append(Node('meta',{'property' if property else 'name':key,'content':value}))
         head.children[0:0]=[Node('meta',{'charset':'utf-8'}),Node('meta',{'name':'viewport','content':'width=device-width, initial-scale=1'}),Node('title',children=[html.escape(c['pageTitle'])])]
         meta('theme-color','#f7f7f2');meta('description',c['metaDescription']);meta('robots','index, follow, max-image-preview:large')
@@ -313,9 +313,9 @@ for page in ROUTES['it']:
         if n.tag=='meta' and n.attrs.get('name')=='robots':n.attrs['content']='noindex, follow'
         if n.tag=='link' and n.attrs.get('rel')=='icon':n.attrs['href']=assets['volkswagen-gold.png']
         if n.tag=='img' and n.attrs.get('src','').startswith('assets/'):
-            n.attrs['data-preview-asset']=n.attrs.pop('src').replace('assets/','')
+            n.attrs['data-preview-asset']=urlsplit(n.attrs.pop('src')).path.removeprefix('assets/')
         if 'srcset' in n.attrs:
-            n.attrs['data-preview-srcset'] = map_srcset(n.attrs.pop('srcset'), lambda url: url.removeprefix('assets/'))
+            n.attrs['data-preview-srcset'] = map_srcset(n.attrs.pop('srcset'), lambda url: urlsplit(url).path.removeprefix('assets/'))
     body.children.append(Node('script',children=[bridge]))
     body.children.extend(Node('script',children=[(DIST/file).read_text()]) for file in scripts)
     inline[page]=dom.render()

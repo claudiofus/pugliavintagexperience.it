@@ -129,6 +129,10 @@ def image_dimensions(path):
         pos+=8+size+(size&1)
     raise ValueError('Unsupported image '+str(path))
 
+def map_srcset(srcset, map_path):
+    candidates = (candidate.strip().split() for candidate in srcset.split(','))
+    return ', '.join(' '.join([map_path(url), *descriptors]) for url, *descriptors in candidates)
+
 def expand_panels(dom, kind, copy):
     marker='data-'+kind+'-panel'
     old=[n for n in dom.root.walk() if marker in n.attrs or n.attrs.get('id')==kind+'-panel']
@@ -189,9 +193,6 @@ for lang in LANGS:
         for kind in ['moment','route','brief']: expand_panels(dom,kind,c)
         for n in dom.root.walk():
             key=n.attrs.get('data-i18n')
-            if page == 'home' and key == 'quickTour':
-                n.attrs.pop('data-page', None)
-                n.attrs['href'] = '#tour-consigliati'
             if n.attrs.get('id') == 'whatsapp-send':
                 n.tag = 'a'
                 n.attrs.pop('type', None)
@@ -200,7 +201,6 @@ for lang in LANGS:
             if key:
                 if key not in c: raise KeyError((page,lang,key))
                 n.children=[c[key]]
-                if key=='chooseTitle':n.tag='h2'
             for source,target in [('data-i18n-alt','alt'),('data-i18n-aria','aria-label'),('data-i18n-placeholder','placeholder')]:
                 if source in n.attrs:n.attrs[target]=c[n.attrs[source]]
             if n.tag=='a' and 'data-page' in n.attrs:
@@ -224,6 +224,8 @@ for lang in LANGS:
             if n.tag=='img' and n.attrs.get('src','').lstrip('./').startswith('assets/'):
                 asset=n.attrs['src'].lstrip('./');n.attrs['src']=prefix+asset
                 n.attrs['width'],n.attrs['height']=image_dimensions(DIST/asset)
+            if 'srcset' in n.attrs:
+                n.attrs['srcset'] = map_srcset(n.attrs['srcset'], lambda url: prefix+url.lstrip('./'))
             if n.tag=='link' and n.attrs.get('href','').lstrip('./').startswith('assets/'):
                 n.attrs['href']=prefix+n.attrs['href'].lstrip('./')
         for nav in [n for n in dom.root.walk() if 'global-nav' in n.attrs.get('class','').split()]:
@@ -236,12 +238,12 @@ for lang in LANGS:
         if page=='events':
             dom.byid('brief-image').attrs.update({'src':prefix+c['briefImage0'],'alt':c['briefAlt0']})
         if page=='home':
-            card_images = (image for card in dom.root.walk()
-                           if 'home-card' in card.attrs.get('class', '').split()
-                           for image in card.walk() if image.tag == 'img')
-            for index,image_node in enumerate(card_images):
-                if index==0: image_node.attrs['fetchpriority']='high'
-                else: image_node.attrs.pop('fetchpriority',None); image_node.attrs['loading']='lazy'
+            for card in dom.root.walk():
+                if 'home-card' in card.attrs.get('class', '').split():
+                    for image_node in card.walk():
+                        if image_node.tag == 'img':
+                            image_node.attrs.pop('fetchpriority', None)
+                            image_node.attrs['loading'] = 'lazy'
         card=next((n for n in dom.root.walk() if 'booking-card' in n.attrs.get('class','').split()),None)
         if card:
             card.children=[n for n in card.children if not isinstance(n,Node) or n.attrs.get('id')!='request-nojs']
@@ -249,7 +251,7 @@ for lang in LANGS:
             card.children.append(Node('noscript',{'id':'request-nojs'},[Node('p',{'class':'form-note'},[help_text]),Node('a',{'class':'button button-dark','href':'https://wa.me/393663031469','target':'_blank','rel':'noopener noreferrer'},[c['openWhatsapp']])]))
         # Metadata is complete in the initial HTML, independent of JavaScript.
         head.children=[n for n in head.children if not isinstance(n,Node) or not (n.tag in ['meta','title','noscript'] or n.tag=='link' and n.attrs.get('rel') in ['canonical','alternate','stylesheet'] or n.tag=='script')]
-        image={'home':'assets/wedding-hero.webp','wedding':'assets/wedding-hero.webp','tour':'assets/night.webp','events':'assets/events-wide.webp'}[page]
+        image={'home':'assets/home-viale.webp','wedding':'assets/matrimonio-arrivo.webp','tour':'assets/night.webp','events':'assets/events-wide.webp'}[page]
         def meta(key,value,property=False):head.children.append(Node('meta',{'property' if property else 'name':key,'content':value}))
         head.children[0:0]=[Node('meta',{'charset':'utf-8'}),Node('meta',{'name':'viewport','content':'width=device-width, initial-scale=1'}),Node('title',children=[html.escape(c['pageTitle'])])]
         meta('theme-color','#f7f7f2');meta('description',c['metaDescription']);meta('robots','index, follow, max-image-preview:large')
@@ -282,6 +284,13 @@ assets = {
 }
 bridge=r'''window.PVE_EMBEDDED=true;window.PVE_PREVIEW_LANGUAGE="__PVE_LANGUAGE__";
 window.PVE_ASSETS=__PVE_ASSETS__;
+document.querySelectorAll('[data-preview-srcset]').forEach(el=>{
+ const candidates=el.dataset.previewSrcset.split(',').map(candidate=>{
+  const [name,...descriptors]=candidate.trim().split(/\s+/);
+  return [window.PVE_ASSETS[name],...descriptors].join(' ');
+ });
+ el.srcset=candidates.join(', ');
+});
 document.querySelectorAll('[data-preview-asset]').forEach(e=>e.src=window.PVE_ASSETS[e.dataset.previewAsset]);
 window.addEventListener('pve:language',e=>{window.PVE_PREVIEW_LANGUAGE=e.detail.language;parent.postMessage({kind:'pve:language',language:e.detail.language,title:document.title},'*');});
 document.addEventListener('click',e=>{
@@ -297,14 +306,16 @@ for page in ROUTES['it']:
     head.children.extend(Node('style',children=[(DIST/file).read_text()]) for file in CSS)
     for n in dom.root.walk():
         if n.tag=='meta' and n.attrs.get('name')=='robots':n.attrs['content']='noindex, follow'
-        if n.tag=='link' and n.attrs.get('rel')=='icon':n.attrs['href']=assets['favicon.svg']
+        if n.tag=='link' and n.attrs.get('rel')=='icon':n.attrs['href']=assets['volkswagen-gold.png']
         if n.tag=='img' and n.attrs.get('src','').startswith('assets/'):
             n.attrs['data-preview-asset']=n.attrs.pop('src').replace('assets/','')
+        if 'srcset' in n.attrs:
+            n.attrs['data-preview-srcset'] = map_srcset(n.attrs.pop('srcset'), lambda url: url.removeprefix('assets/'))
     body.children.append(Node('script',children=[bridge]))
     body.children.extend(Node('script',children=[(DIST/file).read_text()]) for file in scripts)
     inline[page]=dom.render()
 
-outer='''<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, follow"><meta name="theme-color" content="#f7f7f2"><title>Puglia Vintage Experience</title><link rel="icon" href="'''+assets['favicon.svg']+'''" type="image/svg+xml"><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#f7f7f2}iframe{display:block;border:0;width:100%;height:100vh;height:100dvh;background:#f7f7f2}</style></head><body><iframe id="experience" title="Puglia Vintage Experience"></iframe><script>
+outer='''<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, follow"><meta name="theme-color" content="#f7f7f2"><title>Puglia Vintage Experience</title><link rel="icon" href="'''+assets['volkswagen-gold.png']+'''" type="image/png" sizes="270x270"><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#f7f7f2}iframe{display:block;border:0;width:100%;height:100vh;height:100dvh;background:#f7f7f2}</style></head><body><iframe id="experience" title="Puglia Vintage Experience"></iframe><script>
 window.PVE_ASSET_MAP='''+jsondata(assets)+''';const PAGES='''+jsondata(inline)+''';
 const app=document.getElementById('experience');let current={page:null,language:null};
 function parseRoute(){const parts=location.hash.replace(/^#\\/?/,'').split('/');return{page:PAGES[parts[0]]?parts[0]:'home',language:['it','en','fr'].includes(parts[1])?parts[1]:'it'};}

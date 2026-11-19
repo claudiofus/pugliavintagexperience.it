@@ -6,12 +6,19 @@
   const $$ = (selector) => [...document.querySelectorAll(selector)];
   const locales = { it: 'it-IT', en: 'en-GB', fr: 'fr-FR' };
   const asset = path => window.PVE_ASSETS?.[path.replace('assets/', '')] || new URL(path, window.PVE_NAV?.rootURL || location.href).href;
-  const photos = [
-    { src: asset('assets/groom.webp'), alt: 'altGroom', caption: 'galleryCaption0' },
-    { src: asset('assets/masseria.webp'), alt: 'altMasseria', caption: 'galleryCaption1' },
-    { src: asset('assets/sunset.webp'), alt: 'altCouple', caption: 'galleryCaption2' }
+  const photos = $$('[data-gallery]').map(button => {
+    const image = button.querySelector('img');
+    return {
+      src: image.src,
+      alt: image.dataset.i18nAlt,
+      caption: button.querySelector('.gallery-caption [data-i18n]').dataset.i18n
+    };
+  });
+  const moments = [
+    { src: asset('assets/matrimonio-dettagli.webp'), position: '50% 54%', width: 1000, height: 667 },
+    { src: asset('assets/home-viale-960.webp'), position: '36% 69%', width: 960, height: 640 },
+    { src: asset('assets/matrimonio-tramonto.webp'), position: '65% 59%', width: 1050, height: 789 }
   ];
-  const moments = ['assets/wedding-hero.webp', 'assets/groom.webp', 'assets/sunset.webp'].map(asset);
   let language = 'it';
   let activeMoment = 0;
   let activePhoto = 0;
@@ -70,9 +77,12 @@
     });
     $$('[data-moment-panel]').forEach(panel => { panel.hidden = Number(panel.dataset.momentPanel) !== index; });
     const picture = $('#experience-image');
-    picture.src = moments[index];
+    const moment = moments[index];
+    picture.src = moment.src;
+    picture.width = moment.width;
+    picture.height = moment.height;
     picture.alt = t('altExperience' + index);
-    picture.style.objectPosition = index === 0 ? '47% 50%' : index === 1 ? '50% 32%' : '50% 64%';
+    picture.style.objectPosition = moment.position;
     $('#photo-index').textContent = String(index + 1).padStart(2, '0') + ' / 03';
   }
 
@@ -82,7 +92,7 @@
     $('#lightbox-image').src = item.src;
     $('#lightbox-image').alt = t(item.alt);
     $('#lightbox-caption').textContent = t(item.caption);
-    $('#lightbox-count').textContent = String(activePhoto + 1).padStart(2, '0') + ' / 03';
+    $('#lightbox-count').textContent = String(activePhoto + 1).padStart(2, '0') + ' / ' + String(photos.length).padStart(2, '0');
   }
 
   function localToday() {

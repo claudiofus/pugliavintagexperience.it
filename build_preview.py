@@ -2,7 +2,8 @@
 from pathlib import Path
 from html.parser import HTMLParser
 from copy import deepcopy
-from urllib.parse import quote, urljoin
+from hashlib import sha256
+from urllib.parse import quote, urljoin, urlsplit
 import argparse, base64, html, json, re, zipfile
 
 ROOT = Path(__file__).resolve().parent
@@ -180,6 +181,11 @@ templates={page:(DIST/path).read_text() for page,path in ROUTES['it'].items()}
     'base_url':CONFIG['base_url'], 'routes':ROUTES, 'measurement':CONFIG.get('measurement', {}),
     'contact_number':re.sub(r'\D', '', CONFIG['telephone'])
 })+';\n')
+files = CSS + JS
+resource_urls = {
+    name: f"{name}?v={sha256((DIST / name).read_bytes()).hexdigest()[:12]}"
+    for name in files
+}
 rendered={}
 for lang in LANGS:
     for page,filename in ROUTES[lang].items():
@@ -262,11 +268,11 @@ for lang in LANGS:
         head.children.append(Node('link',{'rel':'canonical','href':canonical(page,lang)}))
         for alt in LANGS:head.children.append(Node('link',{'rel':'alternate','hreflang':alt,'href':canonical(page,alt)}))
         head.children.append(Node('link',{'rel':'alternate','hreflang':'x-default','href':canonical(page,'it')}))
-        head.children.extend(Node('link',{'rel':'stylesheet','href':prefix+file}) for file in CSS)
+        head.children.extend(Node('link',{'rel':'stylesheet','href':prefix+resource_urls[file]}) for file in CSS)
         head.children.extend([Node('script',{'id':'seo-jsonld','type':'application/ld+json'},[jsondata(graph(page,lang))]),Node('script',{'id':'seo-variants','type':'application/json'},[jsondata({l:graph(page,l) for l in LANGS})])])
         head.children.append(Node('noscript',children=['<style>.menu-toggle,[role="tablist"],[data-use-route],#use-brief,.booking-card form,#form-step{display:none!important}#mobile-nav[hidden]{display:block!important;position:static}.site-header{position:static}[data-moment-panel][hidden],[data-route-panel][hidden],[data-brief-panel][hidden]{display:block!important}.route-stage{display:block}</style>']))
         scripts=['translations.js','pages-data.js','site-routes.js','navigation.js','privacy.js','app.js' if page=='wedding' else 'experience.js']
-        head.children.extend(Node('script',{'src':prefix+file,'defer':None}) for file in scripts)
+        head.children.extend(Node('script',{'src':prefix+resource_urls[file],'defer':None}) for file in scripts)
         rendered[(page,lang)]=dom.render()
         path=DIST/filename;path.parent.mkdir(parents=True,exist_ok=True);path.write_text(rendered[(page,lang)])
 
@@ -274,7 +280,6 @@ sitemap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitem
 (DIST/'sitemap.xml').write_text(sitemap)
 (DIST/'robots.txt').write_text('User-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: *\nAllow: /\n\nSitemap: '+urljoin(CONFIG['base_url'],'sitemap.xml')+'\n')
 
-files=CSS+JS
 assetnames=set()
 for source in [*rendered.values(),*((DIST/file).read_text() for file in files)]:assetnames.update(re.findall(r'assets/([A-Za-z0-9_.-]+\.(?:webp|jpg|png|svg))',source))
 asset_mime = {'.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp'}
@@ -301,7 +306,7 @@ document.addEventListener('click',e=>{
 inline={}
 for page in ROUTES['it']:
     dom=DOM(rendered[(page,'it')]);head=next(n for n in dom.root.walk() if n.tag=='head');body=next(n for n in dom.root.walk() if n.tag=='body')
-    scripts=[n.attrs['src'] for n in head.children if isinstance(n,Node) and n.tag=='script' and 'src' in n.attrs]
+    scripts=[urlsplit(n.attrs['src']).path for n in head.children if isinstance(n,Node) and n.tag=='script' and 'src' in n.attrs]
     head.children=[n for n in head.children if not isinstance(n,Node) or not (n.tag=='link' and n.attrs.get('rel')=='stylesheet' or n.tag=='script' and 'src' in n.attrs)]
     head.children.extend(Node('style',children=[(DIST/file).read_text()]) for file in CSS)
     for n in dom.root.walk():

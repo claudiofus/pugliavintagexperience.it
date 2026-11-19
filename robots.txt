@@ -1,2 +1,7 @@
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: *
 Allow: /
+
+Sitemap: https://www.pugliavintagexperience.it/sitemap.xml

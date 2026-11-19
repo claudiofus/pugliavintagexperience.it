@@ -1,0 +1,56 @@
+PUGLIA VINTAGE EXPERIENCE — SITO LOCALE
+
+APERTURA
+Aprire index.html nel browser. Le quattro esperienze sono collegate e disponibili
+in italiano, inglese e francese. L’anteprima consegnata separatamente contiene
+l’intero sito in un solo file e può essere aperta direttamente nel browser.
+
+PAGINE
+Italiano: index.html, matrimoni.html, tour.html, eventi-shooting.html.
+English: en/index.html, en/weddings.html, en/tours.html, en/events-photoshoots.html.
+Français: fr/index.html, fr/mariages.html, fr/balades.html, fr/evenements-shootings.html.
+
+LEGGIBILITÀ E NAVIGAZIONE
+Paragrafi principali da 18 px su telefono, titoli di sezione in evidenza e maggiore contrasto.
+Le tre informazioni sul pulmino sono da 17 px, con dimensione assegnata ai singoli testi.
+Le etichette e le informazioni secondarie hanno dimensioni almeno da 14 px su telefono.
+Moduli con campi da 18 px su telefono, pulsanti generosi, focus da tastiera e menu mobile.
+Le tre lingue hanno pagine HTML complete, navigabili anche senza JavaScript.
+Con JavaScript, il cambio lingua conserva i dettagli inseriti nel modulo.
+I contenuti delle schede sono presenti nell’HTML; le frecce della tastiera
+permettono di cambiare scheda. Le animazioni rispettano il movimento ridotto.
+
+RICHIESTE
+I moduli preparano una bozza WhatsApp da rileggere. Il visitatore decide
+se aprirla e inviarla. Non c’è invio automatico né prenotazione istantanea.
+Capienza: nove posti totali, otto per gli ospiti e uno per il conducente.
+Il modulo tour permette di scegliere da uno a otto partecipanti.
+
+SEO E PUBBLICAZIONE
+Ogni lingua ha URL dedicati, titolo, descrizione, canonical e hreflang.
+Sono inclusi sitemap.xml, robots.txt e dati strutturati Organization,
+WebSite, WebPage, Service e BreadcrumbList, con i dati reali disponibili.
+Le immagini hanno dimensioni dichiarate e caricamento differito dove opportuno.
+Non sono inserite recensioni, prezzi o indirizzi non verificati.
+
+Il dominio previsto è https://www.pugliavintagexperience.it/.
+È configurabile in site-config.json. Il sito è stato preparato in locale:
+questi file non modificano il sito attualmente online.
+Alla pubblicazione verificare HTTPS, accesso dei crawler sull’hosting,
+redirect dagli URL precedenti, sitemap e indicizzazione in Search Console.
+Misurare le prestazioni sul dominio pubblicato con PageSpeed Insights.
+Le ottimizzazioni tecniche non garantiscono posizioni o citazioni nelle ricerche.
+
+SORGENTI
+styles.css, pages.css e readability.css definiscono l’aspetto.
+translations.js e pages-data.js contengono i testi nelle tre lingue.
+navigation.js gestisce navigazione, lingua e metadati.
+app.js gestisce la pagina matrimoni; experience.js le altre esperienze.
+site-routes.js viene generato da site-config.json.
+La cartella assets contiene le fotografie reali e l’icona del sito.
+
+RICOSTRUIRE
+Con Python 3: python build_preview.py
+Il programma rigenera le dodici pagine, i metadati, il file HTML unico
+e lo ZIP nella cartella export. Non richiede librerie esterne.
+Per una cartella diversa: python build_preview.py --output /percorso/cartella

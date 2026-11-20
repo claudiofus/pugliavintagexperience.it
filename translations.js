@@ -62,7 +62,7 @@ window.WEDDING_I18N = {
     "galleryHint": "Apri le foto a schermo intero.",
     "galleryCaption0": "Insieme sulla portiera",
     "galleryCaption1": "Un brindisi davanti al pulmino",
-    "galleryCaption2": "I fari accesi, a fine serata",
+    "galleryCaption2": "Un saluto dal finestrino",
     "galleryBottom": "Il nostro furgoncino, fotografato in Puglia.",
     "galleryCta": "Chiedi se è libero",
     "pugliaEyebrow": "DOVE VI PORTIAMO",
@@ -166,7 +166,8 @@ window.WEDDING_I18N = {
     "floatingWhatsAppMessage": "Ciao! Vorrei sapere se il vostro Volkswagen giallo è disponibile per il mio matrimonio in Puglia.",
     "altWeddingDoor": "Gli sposi sulla portiera aperta del pulmino, con un bouquet rosa e bianco",
     "altWeddingToast": "Gli sposi brindano davanti al Volkswagen giallo con le portiere aperte",
-    "altWeddingNight": "Gli sposi si baciano accanto al Volkswagen con i fari accesi"
+    "altWeddingNight": "Gli sposi si baciano accanto al Volkswagen con i fari accesi",
+    "altWeddingWindow": "Gli sposi in occhiali da sole sorridono dal finestrino del pulmino Volkswagen giallo"
   },
   "en": {
     "pageTitle": "Vintage VW Wedding Hire in Puglia | Puglia Vintage Experience",
@@ -231,7 +232,7 @@ window.WEDDING_I18N = {
     "galleryHint": "Open the photos full screen.",
     "galleryCaption0": "Together by the open door",
     "galleryCaption1": "A toast in front of the VW",
-    "galleryCaption2": "Headlights at the end of the evening",
+    "galleryCaption2": "A wave from the window",
     "galleryBottom": "Our own bus, photographed in Puglia.",
     "galleryCta": "See if it’s free for your date",
     "pugliaEyebrow": "THE WEDDING’S IN PUGLIA",
@@ -335,7 +336,8 @@ window.WEDDING_I18N = {
     "floatingWhatsAppMessage": "Hi! Is your yellow VW available to hire for my wedding in Puglia?",
     "altWeddingDoor": "Newlyweds at the open door of the van, with a pink and white bouquet",
     "altWeddingToast": "Newlyweds raising their glasses in front of the yellow Volkswagen",
-    "altWeddingNight": "Newlyweds kissing beside the Volkswagen with its headlights on"
+    "altWeddingNight": "Newlyweds kissing beside the Volkswagen with its headlights on",
+    "altWeddingWindow": "The newlyweds in sunglasses smile from the window of the yellow Volkswagen van"
   },
   "fr": {
     "pageTitle": "Location combi Volkswagen pour mariage dans les Pouilles | Puglia Vintage Experience",
@@ -400,7 +402,7 @@ window.WEDDING_I18N = {
     "galleryHint": "Agrandir les photos.",
     "galleryCaption0": "Ensemble à la portière",
     "galleryCaption1": "Un toast devant le combi",
-    "galleryCaption2": "Les phares allumés en fin de soirée",
+    "galleryCaption2": "Un signe de la main à la fenêtre",
     "galleryBottom": "Notre combi, photographié dans les Pouilles.",
     "galleryCta": "Et pour votre mariage ?",
     "pugliaEyebrow": "ON VOUS EMMÈNE",
@@ -504,6 +506,7 @@ window.WEDDING_I18N = {
     "floatingWhatsAppMessage": "Bonjour ! Votre combi jaune est-il disponible pour mon mariage dans les Pouilles ?",
     "altWeddingDoor": "Les mariés à la portière ouverte du combi, avec un bouquet rose et blanc",
     "altWeddingToast": "Les mariés trinquent devant le combi jaune aux portes ouvertes",
-    "altWeddingNight": "Les mariés s’embrassent près du combi, les phares allumés"
+    "altWeddingNight": "Les mariés s’embrassent près du combi, les phares allumés",
+    "altWeddingWindow": "Les mariés, en lunettes de soleil, sourient à la fenêtre du combi Volkswagen jaune"
   }
 };

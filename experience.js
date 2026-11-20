@@ -28,7 +28,7 @@
       const route=+panel.dataset.routePanel;panel.hidden=route!==index;
       [...panel.querySelectorAll('[data-route-stop]')].forEach((e,i)=>e.textContent=t('routeStops'+route)[i]);
     });
-    const im=$('#route-image');im.src=asset(t('routeImage'+index));im.alt=t('routeAlt'+index);im.style.objectPosition=index===1?'50% 31%':'50% 50%';
+    const im=$('#route-image');im.src=asset(t('routeImage'+index));im.alt=t('routeAlt'+index);im.classList.toggle('route-image-coast',index===1);
     $('#route-count').textContent=String(index+1).padStart(2,'0')+' / 03';
     if(setForm)$('#enquiry-route').value=String(index);
   }

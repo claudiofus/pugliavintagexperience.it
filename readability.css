@@ -33,16 +33,9 @@ button:focus-visible,a:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .mobile-nav{padding:14px max(24px,calc((100% - 1440px)/2)) 24px}
 .mobile-nav a{min-height:56px;padding:16px 4px;font-size:22px;line-height:1.4}
 .back-home{font-size:15px;min-height:44px;margin-bottom:28px;color:var(--muted)}
-.home-card-tag{font-size:12px;letter-spacing:.06em;top:22px;left:22px;padding:8px 12px}
-.home-card-image{height:370px}
-.home-card h2{font-size:clamp(33px,3.1vw,46px);letter-spacing:-.04em;line-height:1.12}
-.home-card-bottom{min-height:148px;align-items:center;padding:24px;gap:18px}
-.home-card-bottom p{font-size:16px;line-height:1.65;color:var(--muted);max-width:30ch}
-.card-arrow{width:44px;height:44px;font-size:28px}
 .home-facts{font-size:15px;line-height:1.6;flex-wrap:wrap;padding-block:30px;color:var(--muted)}
 .home-facts span{padding:6px 28px}.home-help{padding-block:86px}
 .home-help h2{font-size:clamp(36px,4vw,54px)}
-.home-card-shade{background:linear-gradient(0deg,#14271aee,#14271a24 72%)}
 .photo-caption,.portrait-caption,.story-photo-caption{font-size:14px;line-height:1.6;letter-spacing:.025em}
 .photo-caption{max-width:calc(100% - 240px)}
 .hero-photo-shade{background:linear-gradient(0deg,#13251ed9,transparent 55%)}
@@ -110,17 +103,15 @@ button:focus-visible,a:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .mobile-booking-bar>div{min-width:0;flex:1}.mobile-booking-bar>div>strong{font-size:15px;line-height:1.35}.mobile-booking-bar>div>span{font-size:13px;line-height:1.4;color:var(--muted)}
 .mobile-booking-bar .button{min-height:48px;font-size:15px;padding:12px 18px;gap:12px;flex-shrink:0}
 @media(max-width:1160px){
- .desktop-nav.global-nav{display:none}.menu-toggle{display:flex}
- .home-card-image{height:350px}.home-card-bottom{padding:22px;min-height:165px}.service-strip>span{font-size:14px}
+ .desktop-nav.global-nav{display:none}.menu-toggle{display:flex}.service-strip>span{font-size:14px}
 }
 @media(max-width:980px){
  .booking-layout{grid-template-columns:1fr;gap:40px}.booking-card{width:100%;max-width:700px}.booking-intro .section-description{max-width:58ch}
- .split-story{gap:36px}.home-help{gap:32px}.home-card-bottom{min-height:190px;align-items:start}.home-card-bottom .card-arrow{width:36px;height:36px}
+ .split-story{gap:36px}.home-help{gap:32px}
 }
 @media(max-width:800px){
  :root{--reading:17px}.section-shell,.nav-wrap{width:calc(100% - 48px)}
  .hero-top{grid-template-columns:1fr;gap:28px}.hero-intro{max-width:600px}.hero-intro p{max-width:50ch}
- .home-choices{grid-template-columns:1fr;gap:24px}.home-card-image{height:380px}.home-card h2{font-size:42px}.home-card-bottom{min-height:112px;align-items:center}.home-card-bottom p{max-width:44ch}.home-card-bottom .card-arrow{width:44px;height:44px}
  .route-stage,.brief-stage,.split-story{grid-template-columns:1fr}.route-photo{height:350px;min-height:0}.brief-photo{height:410px;min-height:0}.brief-copy{min-height:0}
  .included-grid{grid-template-columns:1fr;gap:24px}.included-grid>div{position:relative;padding-left:40px}.included-no{position:absolute;left:0;top:4px}
  .home-help{flex-direction:column;align-items:start}.footer-links{flex-wrap:wrap}.photo-caption{max-width:calc(100% - 180px)}.specs>div>span{font-size:13px}
@@ -131,7 +122,6 @@ button:focus-visible,a:focus-visible,summary:focus-visible,[tabindex]:focus-visi
  .nav-actions{gap:4px}.languages{gap:0}.languages a{min-width:34px;min-height:44px;font-size:13px;border-radius:10px}.nav-cta{display:none}.menu-toggle{width:42px;height:46px;padding:10px}
  .hero{padding-top:32px}.hero h1{font-size:clamp(58px,17vw,92px);letter-spacing:-.055em}
  .hero-intro p{margin-bottom:22px;line-height:1.7}
- .home-card-image{height:330px}.home-card h2{font-size:36px;left:22px;right:22px;bottom:24px}.home-card-tag{font-size:12px;left:18px;top:18px}.home-card-bottom{padding:22px;min-height:140px;gap:16px}.home-card-bottom p{font-size:16px}
  .home-facts{padding-block:28px}
  .hero-stamp{display:none}.photo-caption{max-width:none;left:22px;right:22px;bottom:24px;font-size:12px;letter-spacing:.05em}.hero-visual{height:365px}
  .service-strip{gap:12px;padding-block:26px;align-items:start}.service-strip>span{flex:1;font-size:13px;gap:8px;max-width:none}.service-strip>span>span{max-width:none}.service-strip svg{width:18px;height:18px}
@@ -151,7 +141,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 }
 @media(max-width:360px){
  :root{--mobile-gutter:16px}.nav-wrap{gap:5px}.brand{font-size:13px;letter-spacing:2.6px}.brand-sub{font-size:5.5px;letter-spacing:.7px}.brand-icon{width:24px}
- .languages a{min-width:31px}.menu-toggle{width:40px}.nav-actions{gap:2px}.hero .eyebrow{font-size:12px;letter-spacing:.08em}.booking-card{padding-inline:18px}.home-card h2{font-size:33px}.mobile-booking-bar{padding-inline:16px}.mobile-booking-bar .button{padding-inline:13px;gap:8px}
+ .languages a{min-width:31px}.menu-toggle{width:40px}.nav-actions{gap:2px}.hero .eyebrow{font-size:12px;letter-spacing:.08em}.booking-card{padding-inline:18px}.mobile-booking-bar{padding-inline:16px}.mobile-booking-bar .button{padding-inline:13px;gap:8px}
 }
 
 [data-moment-panel],[data-brief-panel]{min-height:0;padding-top:32px;padding-bottom:20px}
@@ -220,13 +210,11 @@ a.phone-link { display: inline-flex; align-items: center; gap: 8px; min-height: 
 }
 @media(max-width:580px){
  :root{--reading:18px}
- .home-card-bottom p,.icon-content>p,.experience-copy p,.brief-copy p,.route-copy>p,.included-grid p,.faq-list p,.privacy-dialog p:last-child{font-size:18px;line-height:1.7}
+ .icon-content>p, .experience-copy p, .brief-copy p, .route-copy>p, .included-grid p, .faq-list p, .privacy-dialog p:last-child {font-size:18px;line-height:1.7}
  .hero .eyebrow,.section-heading .eyebrow,.experience-heading .eyebrow,.puglia-copy .eyebrow,.booking-intro .eyebrow,.faq-heading .eyebrow,.gallery-heading .eyebrow,.related-section>.eyebrow,.home-help .eyebrow,.story-copy>.eyebrow,.events-process .story-copy>.eyebrow{font-size:14px;line-height:1.65;letter-spacing:.08em}
  .button,.hero-intro .button,.home-help>.button,.route-copy .button,.form-submit{font-size:18px;min-height:54px}
  .microcopy,.hero-micro,.form-note,.field-hint,.preview-intro,.route-note,.location-note,.gallery-bottom,.booking-reassurance,.contact-line,.optional-details summary,.preview-controls button,.gallery-bottom>span{font-size:16px;line-height:1.65}
  .home-help{padding-block:52px}
- .home-card-tag{font-size:14px}
- .home-card-bottom{min-height:140px}
  .home-facts { margin-inline: calc(-1 * var(--mobile-gutter)); }
  .home-facts>span,.home-facts>span+span,.home-facts>span:first-child,.home-facts>span:last-child {
    padding: 14px var(--mobile-gutter);

@@ -257,7 +257,7 @@ for lang in LANGS:
             card.children.append(Node('noscript',{'id':'request-nojs'},[Node('p',{'class':'form-note'},[help_text]),Node('a',{'class':'button button-dark','href':'https://wa.me/393663031469','target':'_blank','rel':'noopener noreferrer'},[c['openWhatsapp']])]))
         # Metadata is complete in the initial HTML, independent of JavaScript.
         head.children=[n for n in head.children if not isinstance(n,Node) or not (n.tag in ['meta','title','noscript'] or n.tag=='link' and n.attrs.get('rel') in ['canonical','alternate','stylesheet'] or n.tag=='script')]
-        image={'home':'assets/home-viale.webp?v=2','wedding':'assets/matrimonio-arrivo.webp','tour':'assets/night.webp','events':'assets/events-wide.webp'}[page]
+        image={'home':'assets/home-viale.webp?v=2','wedding':'assets/matrimonio-arrivo.webp','tour':'assets/tour-pulmino-trulli.webp','events':'assets/events-wide.webp'}[page]
         def meta(key,value,property=False):head.children.append(Node('meta',{'property' if property else 'name':key,'content':value}))
         head.children[0:0]=[Node('meta',{'charset':'utf-8'}),Node('meta',{'name':'viewport','content':'width=device-width, initial-scale=1'}),Node('title',children=[html.escape(c['pageTitle'])])]
         meta('theme-color','#f7f7f2');meta('description',c['metaDescription']);meta('robots','index, follow, max-image-preview:large')

@@ -158,6 +158,23 @@ button:focus-visible,a:focus-visible,summary:focus-visible,[tabindex]:focus-visi
   pointer-events: none;
 }
 
+#whatsapp-send {
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  background: #08764c;
+  color: #fff;
+}
+#whatsapp-send:hover { background: #065d3c; }
+#whatsapp-send > svg {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+  stroke: none;
+}
+
 .floating-whatsapp {
   display: inline-flex;
   align-items: center;

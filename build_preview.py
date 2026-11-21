@@ -45,6 +45,10 @@ PHONE_ICON = (
     '</svg>'
 )
 
+WHATSAPP_ICON = ('<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+    '<path d="M12 2a9.8 9.8 0 0 0-8.4 14.8L2 22l5.4-1.4A9.8 9.8 0 1 0 12 2zm0 18a8.1 8.1 0 0 1-4.1-1.1l-.3-.2-3.2.9.9-3.1-.2-.3A8.2 8.2 0 1 1 12 20zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1l-.7.8c-.1.2-.3.2-.5.1a6.8 6.8 0 0 1-2-1.2 7.4 7.4 0 0 1-1.3-1.6c-.1-.2 0-.4.1-.5l.4-.4.2-.4c.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 2 0 1.1.8 2.2.9 2.4.1.1 1.6 2.6 4 3.6.6.3 1 .4 1.3.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .2-1.1-.1-.2-.2-.2-.3-.3z"/>'
+    '</svg>')
+
 class Node:
     def __init__(self, tag, attrs=None, children=None, closed=False):
         self.tag, self.attrs, self.children, self.closed = tag, dict(attrs or {}), children or [], closed
@@ -100,9 +104,6 @@ def add_floating_actions(body, page, lang, copy):
     message = copy['generalMessage' if page == 'home' else 'floatingWhatsAppMessage']
     if page == 'home' and lang == 'it':
         message = CONFIG['measurement']['legacy_home_whatsapp_text']
-    icon = ('<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
-            '<path d="M12 2a9.8 9.8 0 0 0-8.4 14.8L2 22l5.4-1.4A9.8 9.8 0 1 0 12 2zm0 18a8.1 8.1 0 0 1-4.1-1.1l-.3-.2-3.2.9.9-3.1-.2-.3A8.2 8.2 0 1 1 12 20zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1l-.7.8c-.1.2-.3.2-.5.1a6.8 6.8 0 0 1-2-1.2 7.4 7.4 0 0 1-1.3-1.6c-.1-.2 0-.4.1-.5l.4-.4.2-.4c.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 2 0 1.1.8 2.2.9 2.4.1.1 1.6 2.6 4 3.6.6.3 1 .4 1.3.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .2-1.1-.1-.2-.2-.2-.3-.3z"/>'
-            '</svg>')
     link = Node('a', {
         'id': 'floating-whatsapp',
         'class': 'floating-whatsapp',
@@ -110,7 +111,7 @@ def add_floating_actions(body, page, lang, copy):
         'target': '_blank',
         'rel': 'noopener noreferrer',
         'aria-label': f'{label} · WhatsApp',
-    }, [icon])
+    }, [WHATSAPP_ICON])
     actions = [link]
     if booking_bar is not None:
         actions.append(booking_bar)
@@ -204,6 +205,7 @@ for lang in LANGS:
                 n.attrs.pop('type', None)
                 phone = re.sub(r'\D', '', CONFIG['telephone'])
                 n.attrs.update({'href': f'https://wa.me/{phone}', 'target': '_blank', 'rel': 'noopener noreferrer'})
+                n.children = [WHATSAPP_ICON, Node('span', {'data-i18n': 'openWhatsapp'})]
             if key:
                 if key not in c: raise KeyError((page,lang,key))
                 n.children=[c[key]]
